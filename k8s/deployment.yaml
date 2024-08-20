@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: food-app-kubernetes
+  template:
+    metadata:
+      labels:
+        app: food-app-kubernetes
+    spec:
+      containers:
+      - name: nextjs-container
+        image: us.gcr.io/food-ordering-k8-433016/food-app-kubernetes:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGODB_URI
+          value: "mongodb+srv://azizulhoq953:t5D3fniTQdIwb0Ff@cluster0.bo5g0gy.mongodb.net/food-ordering"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
