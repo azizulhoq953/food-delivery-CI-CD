@@ -17,9 +17,6 @@ spec:
         image: us.gcr.io/food-ordering-k8-433016/food-app-kubernetes:v1
         ports:
         - containerPort: 3000
-        env:
-        - name: MONGODB_URI
-          value: "mongodb+srv://azizulhoq953:t5D3fniTQdIwb0Ff@cluster0.bo5g0gy.mongodb.net/food-ordering"
         resources:
           requests:
             memory: "512Mi"
